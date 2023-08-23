@@ -1,6 +1,11 @@
 <?php
 //INCLUDE THE ACCESS TOKEN FILE
 include 'acesstoken.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+   $phone_num = $_POST['phone']; 
+   $amt = $_POST['amount'];
+}
 date_default_timezone_set('Africa/Nairobi');
 $processrequestUrl = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
 $callbackurl = 'https://1e42-102-215-76-65.ngrok-free.app/mympesa/callback.php';
@@ -9,12 +14,11 @@ $BusinessShortCode = '174379';
 $Timestamp = date('YmdHis');
 // ENCRIPT  DATA TO GET PASSWORD
 $Password = base64_encode($BusinessShortCode . $passkey . $Timestamp);
-echo $Password;
-$phone = '254794298696';//phone number to receive the stk push
-$money = '1';
+$phone = '$phone_num';//phone number to receive the stk push
+$money = '$amt';
 $PartyA = $phone;
 $PartyB = '254708374149';
-$AccountReference = 'UMESKIA SOFTWARES';
+$AccountReference = 'My first test';
 $TransactionDesc = 'stkpush test';
 $Amount = $money;
 $stkpushheader = ['Content-Type:application/json', 'Authorization:Bearer ' . $access_token];
