@@ -8,4 +8,8 @@ GitHub repo for M-Pesa STK Push Integration - Accept Payments through M-Pesa STK
 
 NB:// To receive callbacks through the callback url the callback.php file needs to be in an active domain or you can use secure tunnels such as ngrok to expose the file publicly.
 
-5.
+5.The callback file receives data in json format and decodes it and further saves it to the database in the transactions table.
+
+NB:// Remember to import the database so you use it or create your own alternatively. 
+
+
