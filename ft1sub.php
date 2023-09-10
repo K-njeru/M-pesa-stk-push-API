@@ -8,7 +8,7 @@ session_start();
  $servername = "localhost";
  $username = "root";
  $password = "";
- $dbname = "profit";
+ $dbname = "mpesa";
  
  // Create a MySQLi connection
  $conn = mysqli_connect($servername, $username, $password, $dbname);
